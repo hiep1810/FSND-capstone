@@ -1,3 +1,9 @@
+export DATABASE_USERNAME='admin'
+export DATABASE_PASSWORD='admin'
+export DATABASE_HOST='localhost'
+export DATABASE_PORT=5432
+export DATABASE_NAME='filmography'
+
 export AUTH0_DOMAIN='dev-nf4n45ptn3bgpffq.us.auth0.com'
 export ALGORITHMS=['RS256']
 export API_AUDIENCE='movie'
