@@ -6,10 +6,15 @@ While running locally: http://localhost:5000
 
 ## Introduction
 
-### Overview
+### Project Motivation
 
-The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. You are an Executive Producer within the company and are creating a system to simplify and streamline your process.
 
+
+The motivation for creating The Casting Agency application is to simplify the movie production process. The application automates tasks, centralizes information, and improves communication. It also allows for data analysis to make better casting decisions. The goal is to simplify casting, increase productivity, and choose the right actors for each role.
+
+
+
+### Roles
 - Models:
     - Movies with attributes title and release date
     - Actors with attributes name, age and gender
@@ -28,20 +33,22 @@ The Casting Agency models a company that is responsible for creating movies and 
     - Executive Producer
         - All permissions a Casting Director has and…
         - Add or delete a movie from the database
-- Tests:
-    - One test for success behavior of each endpoint
-    - One test for error behavior of each endpoint
-    - At least two tests of RBAC for each role
+
 
 ## Tech Stack (Dependencies)
 
-### 1. Backend Dependencies
-Our tech stack will include the following:
- * **SQLAlchemy ORM** to be our ORM library of choice
- * **PostgreSQL** as our database of choice
- * **Python3** and **Flask** as our server language and server framework
+**Flask** is a lightweight backend microservices framework. Flask is required to handle requests and responses.
 
-## Development Setup
+**SQLAlchemy** is the Python SQL toolkit and ORM we'll use handle the lightweight sqlite database. You'll primarily work in app.py and can reference models.py.
+
+**Flask-CORS** is the extension we'll use to handle cross origin requests from our frontend server.
+
+**Auth0** is the authentication and authorization system we'll use to handle users with different roles with more secure and easy ways
+
+**PostgreSQL** this project is integrated with a popular relational database PostgreSQL, though other relational databases can be used with a little effort.
+
+
+## Running Locally
 
 1. **Install the dependencies:**
 ```

@@ -2,6 +2,9 @@
 __pycache__
 venv
 .env
+containers.json
+public-endpoint.json
+
 
 # OS generated files #
 ######################

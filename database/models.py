@@ -68,23 +68,8 @@ ActorMovie = db.Table('ActorMovie',
     db.Column('movie_id', db.Integer, db.ForeignKey('Movie.id', ondelete='CASCADE'), primary_key=True)
 )
 
-
-'''
-Movie
-a persistent Movie entity, extends the base SQLAlchemy Model
-'''
-class Movie(db.Model):
-    __tablename__ = 'Movie'
-    # Autoincrementing, unique primary key
-    id = db.Column(db.Integer, primary_key=True)
-    # String Title
-    title = db.Column(db.String(128), nullable=False)
-    # Release Date
-    release_date = db.Column(db.Date, nullable=False)
-    # Define the relationship with the Actor table through the ActorMovie table 
-    actors = db.relationship('Actor', \
-                             secondary=ActorMovie, \
-                             backref='movies')
+class BaseModel(db.Model):
+    __abstract__ = True
 
     '''
     insert()
@@ -123,6 +108,24 @@ class Movie(db.Model):
     def update(self):
         db.session.commit()
 
+'''
+Movie
+a persistent Movie entity, extends the base SQLAlchemy Model
+'''
+class Movie(BaseModel):
+    __tablename__ = 'Movie'
+    # Autoincrementing, unique primary key
+    id = db.Column(db.Integer, primary_key=True)
+    # String Title
+    title = db.Column(db.String(128), nullable=False)
+    # Release Date
+    release_date = db.Column(db.Date, nullable=False)
+    # Define the relationship with the Actor table through the ActorMovie table 
+    actors = db.relationship('Actor', \
+                             secondary=ActorMovie, \
+                             backref='movies')
+
+
     # Define the string representation of a Movie object
     def serialize(self):
         return {
@@ -131,53 +134,18 @@ class Movie(db.Model):
             'release_date': self.release_date.strftime('%Y-%m-%d'),
             'actors': [actor.serialize() for actor in self.actors]
         }
+
 '''
 Actor
 a persistent Actor entity, extends the base SQLAlchemy Model
 '''
-class Actor(db.Model):
+class Actor(BaseModel):
     __tablename__ = 'Actor'
     # Autoincrementing, unique primary key
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.String(16), nullable=False)
-    '''
-    insert()
-        inserts a new actor into a database
-        the actor must have a unique name
-        the actor must have a unique id or null id
-        EXAMPLE
-            actor = Actor(name=req_name, age=req_age, gender=req_gender)
-            actor.insert()
-    '''
-
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    '''
-    delete()
-        deletes a new actor into a database
-        the actor must exist in the database
-        EXAMPLE
-            actor.delete()
-    '''
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-    
-    '''
-    update()
-        updates a new model into a database
-        the model must exist in the database
-        EXAMPLE
-            actor = Actor.query.filter(Actor.id == id).one_or_none()
-            actor.name = 'Actor 1'
-            actor.update()
-    '''
-    def update(self):
-        db.session.commit()
 
     # Define the string representation of a Actor object
     def serialize(self):
