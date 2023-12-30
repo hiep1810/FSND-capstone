@@ -1,7 +1,9 @@
 # FSND capstone Details
 
 -----
+Heroku Link: https://ry-fsnd-capstone.herokuapp.com
 
+While running locally: http://localhost:5000
 ## Introduction
 
 ### Overview
@@ -35,11 +37,9 @@ The Casting Agency models a company that is responsible for creating movies and 
 
 ### 1. Backend Dependencies
 Our tech stack will include the following:
- * **A virtual environment** provided in the workspace (if working locally, see README)
  * **SQLAlchemy ORM** to be our ORM library of choice
  * **PostgreSQL** as our database of choice
  * **Python3** and **Flask** as our server language and server framework
- * **Flask-Migrate** for creating and running schema migrations
 
 ## Development Setup
 
@@ -77,7 +77,7 @@ export DATABASE_PORT=5432
 export DATABASE_NAME='filmography'
 
 export FLASK_APP=api.py;
-export FLASK_ENV=development
+export FLASK_DEBUG='1'
 
 export UTH0_DOMAIN='your_auth0_domain'
 export API_AUDIENCE='auth0_audience'
