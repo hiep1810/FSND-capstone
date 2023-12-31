@@ -4,7 +4,7 @@ venv
 .env
 containers.json
 public-endpoint.json
-
+vercel.json
 
 # OS generated files #
 ######################
@@ -16,3 +16,4 @@ public-endpoint.json
 ehthumbs.db
 Thumbs.db
 env/
+.vercel

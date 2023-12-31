@@ -1,7 +1,7 @@
 import unittest
 import json
 import os
-from api import create_app
+from api import app
 from  database.models import Actor, Movie, setup_db
 
 
@@ -11,7 +11,7 @@ class AppTestCase(unittest.TestCase):
         self.casting_assistant_token = os.environ['CASTING_ASSISTANT_TOKEN']
         self.casting_director_token = os.environ['CASTING_DIRECTOR_TOKEN']
         self.executive_producer_token = os.environ['EXECUTIVE_PRODUCER_TOKEN']
-        self.app = create_app()
+        self.app = app
         self.client = self.app.test_client
         
         # binds the app to the current context
