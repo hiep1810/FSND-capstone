@@ -1,7 +1,9 @@
 # FSND capstone Details
 
 -----
-Render Link: https://filmography.onrender.com/
+AWS Host Link: https://flask-service.bdv2i4mht0856.us-east-2.cs.amazonlightsail.com/
+
+
 While running locally: http://localhost:5000
 
 ## Introduction
@@ -90,7 +92,13 @@ export UTH0_DOMAIN='your_auth0_domain'
 export API_AUDIENCE='auth0_audience'
 ```
 
+## Running with Amazon Lightsail Containers
+Amazon Lightsail is an easy-to-use virtual private server that offers a containers service. Follow along this tutorial to learn how to serve a Flask app on Lightsail containers service.  
+
+https://aws.amazon.com/vi/tutorials/serve-a-flask-app/
+
 -----
+
 # Flask API Documentation
 
 Introduction
